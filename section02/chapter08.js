@@ -47,9 +47,22 @@ let objectArr = [
     { name: "tlagkswn" },
 ];
 
-console.log(
+console.log( // 이걸로는 못찾음.
     objectArr.indexOf({ name: "심한주" })
 );
 console.log(
     objectArr.findIndex((item) => item.name === "심한주")
 );
+
+// 5. find
+// 모든 요소를 순회하면서 콜백함수를 만족하는 요소를 찾는데, 요소를 그대로 반환
+let arr5 = [
+    { name: "심한주" },
+    { name: "tlagkswn" },
+];
+
+const finded = arr5.find(
+    (item) => item.name === "심한주"
+)
+
+console.log(finded);
