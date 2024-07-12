@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Button from "../components/Button";
 import DiaryList from "../components/DiaryList";
 
+// Header에 표시된 날짜에 쓰여진 일기만 보여주게하는 로직
 const getMonthlyDate = (pivotDate, data) => {
   const beginTime = new Date(
     pivotDate.getFullYear(),
@@ -31,10 +32,13 @@ const getMonthlyDate = (pivotDate, data) => {
 
 const Home = () => {
   const data = useContext(DiaryStateContext);
+  // 최상단에 날짜를 변경하기 위해 날짜를 담아둘 state
   const [pivotDate, setPivotDate] = useState(new Date());
 
+  // 띄워진 달에 작성한 일기만으로 필터링된 일기 데이터들
   const monthlyData = getMonthlyDate(pivotDate, data);
 
+  // 화살표 ( > )를 눌렀을 때 날짜를 더하거나 빼주는 함수.
   const onIncreaseMonth = () => {
     setPivotDate(new Date(pivotDate.getFullYear(), pivotDate.getMonth() + 1));
   };
